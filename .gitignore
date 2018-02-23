@@ -99,3 +99,8 @@ ENV/
 
 # mypy
 .mypy_cache/
+
+# project specific
+examples/*.json
+!examples/config.json
+*.csv
