@@ -51,7 +51,7 @@ if __name__ == "__main__":
 
 ```json
 {
-  "endpoint": "http://portal.xmedius.com",
+  "endpoint": "https://portal.xmedius.com",
   "enterprise_account": "acme",
   "access_token": "1A2B3C...",
   "password_setup_mode": "manual"
@@ -63,7 +63,7 @@ if __name__ == "__main__":
 
 ```
 username,email,last_name,group,password,language
-tirion.lanister,tirion.lannister@westeros.com,Lannister,Casterly Rock,,P@s$word,en
+tirion.lanister,tirion.lannister@westeros.com,Lannister,Casterly Rock,P@s$word,en
 ```
 
 4. Run add_user.py

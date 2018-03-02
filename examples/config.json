@@ -1,5 +1,5 @@
 {
-  "endpoint": "http://portal.xmedius.com",
+  "endpoint": "https://portal.xmedius.com",
   "enterprise_account": "",
   "access_token": "",
   "password_setup_mode": "manual"
