@@ -28,18 +28,22 @@ class Client:
         #Remove unset keys to use the enterprise default
         if not user_parameters['language']:
             del user_parameters['language']
+        else:
+            user_parameters['language'] = user_parameters['language'].lower()
 
         if not user_parameters['time_zone']:
             del user_parameters['time_zone']
 
         data= { 'user': user_parameters }
         url = "%s/enterprises/%s/users" % (self.endpoint, self.enterprise_account)
-        r = requests.post(url, headers=self._portal_headers(), json=data)
+        r = requests.post(url, headers=self._portal_headers(), json=data, allow_redirects=False)
+
         return r.json()
 
     def _groups(self):
         url = "%s/enterprises/%s/groups" % (self.endpoint, self.enterprise_account)
         r = requests.get(url, headers=self._portal_headers() )
+
         json = r.json()
 
         if json['result'] == True:
