@@ -78,7 +78,7 @@ tirion.lannister@westeros.com... Success
 ## Configuration File Format
 
 The configuration file is a `JSON` file. An example configuration file is provided, see
-`config.json.example`.
+[config.json](https://github.com/xmedius/xmc-user-importer/blob/master/examples/config.json).
 
 Supported options are:
 
@@ -101,7 +101,7 @@ Value             | Description
 
 ## CSV File Format
 
-A sample file is provided, see `sample.csv`. The columns headers must be present.
+A sample file is provided, see [sample.csv](https://github.com/xmedius/xmc-user-importer/blob/master/examples/sample.csv). The columns headers must be present.
 
 The comma separated file supports the following column (all values are strings):
 
