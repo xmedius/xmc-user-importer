@@ -101,6 +101,8 @@ ENV/
 .mypy_cache/
 
 # project specific
+*.csv
 examples/*.json
 !examples/config.json
-*.csv
+!examples/sample.csv
+
