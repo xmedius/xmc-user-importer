@@ -19,7 +19,7 @@ to use a CSV file to import users. This page explains how to do it.
 
 ## Prerequisites
 
-- Python version 2.7 (minimum)
+- Python version 2.7 (minimum) [download](https://www.python.org/downloads/)
 - Pip updated to its latest version:
   ```
   pip install --upgrade pip
