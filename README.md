@@ -2,10 +2,9 @@
 
 **This script allows creating XMedius Cloud users from a CSV file.**
 
-In most cases, the XMedius Cloud AD Sync tool is the preferred method to synchronize users between
-an Active Directory and the XMedius Cloud Portal. However, if customers do not have an Active Directory
-or simply do not require synchronization beyond the first importation, they still have the option
-to use a CSV file to import users. This page explains how to do it.
+In most cases, the XMedius Cloud AD Sync tool is the preferred method to synchronize users between an Active Directory and the XMedius Cloud Portal. However, if customers do not have an Active Directory or simply do not require synchronization beyond the first importation, they still have the option to use a CSV file to import users. This page explains how to do it.
+
+This tool only adds new user account, it does not update existing ones.
 
 # Table of Contents
 
@@ -27,8 +26,10 @@ to use a CSV file to import users. This page explains how to do it.
 
 ## Install Package
 
+From a console, run the following command:
+
 ```
-pip install https://github.com/xmedius/xmc-user-importer/tarball/master
+$> pip install https://github.com/xmedius/xmc-user-importer/tarball/master
 ```
 
 # Quick Start
@@ -82,7 +83,7 @@ Value             | Description
 ------------------|------------
 ```manual```      | Reads the password from the CSV file.
 ```user_choice``` | Does not set a password and lets the portal send the "let the user choose his password" email. Ignores the password value in the CSV file.
-```random```      | A random password will be generated for the user, it will not be returned. Ignores the password value in the CSV file.
+```random```      | A random password will be generated for the user, it will not be returned, nor transmitted to the user. Ignores the password value in the CSV file.
 
 
 ## CSV File Format
@@ -93,12 +94,12 @@ The comma separated file supports the following column (all values are strings):
 
 Column              | Required | Description
 --------------------|----------|-----------
-```username```      |        Y | Identifier used to login. May only contain a-z, A-Z, 0-9, hyphen (-), underscore (_) and dot (.).
-```email```         |        Y | The email of the user.
+```username```      |        Y | Identifier used to login. Must be unique, may only contain a-z, A-Z, 0-9, hyphen (-), underscore (_) and dot (.).
+```email```         |        Y | The email of the user. Must be unique.
 ```first_name```    |        N | First Name of the user.
 ```last_name```     |        N | Last Name of the user.
-```group```         |        Y | Group name to assign the user to. If unspecified or if it does not exist in the enteprise account, the enterprise's default group will be used.
-```password```      |        N | Password of user, only required if the `password_setup_mode` is manual, ignored otherwise.
+```group```         |        N | Group name to assign the user to. If unspecified or if it does not exist in the enteprise account, the enterprise's default group will be used.
+```password```      |      Y/N | Password of user, only required if the `password_setup_mode` is manual, ignored otherwise.
 ```fax_number```    |        N | Fax number to assign to the user for inbound faxing, in E.164 format.
 ```salutation```    |        N | Saluation of the user.
 ```job_title```     |        N | Job Title of the user.
@@ -116,12 +117,13 @@ Column              | Required | Description
 
 ## Note
 
+- It is recommended to test the import on one account first and verify that all flows, including email deliveries, are in line with the expected results
 - The password used to create the user will NEVER be sent to newly created user or returned to the
   enterprise administrator running the script. When using `"password_setup_mode": "manual"`, the
   enterprise administrator is responsible to communicate the password to the users.
 - The welcome emails and fax number assignation email will follow their relevant enterprise settings.
-  Using `"password_setup_mode": "user_choice"` will always send an email to user requesting him to
-  configure his password.
+  - Using `"password_setup_mode": "user_choice"` will always send an email to user requesting him to configure his password.
+  - If any email notification is turned on (welcome email, password setup, etc…) provided email addresses must be valid and accepted by your mail server
 
 # License
 
