@@ -33,21 +33,7 @@ pip install https://github.com/xmedius/xmc-user-importer/tarball/master
 
 # Quick Start
 
-1. Given the following script (see [here](https://github.com/xmedius/xmc-user-importer/blob/master/examples/add_users.py)):
-```python
-import sys
-from xmcuserimporter import Parser
-
-# python add_user.py <config_file> <csv_file>
-
-if __name__ == "__main__":
-    config_filename = sys.argv[1]
-    csv_filename = sys.argv[2]
-
-    Parser(config_filename, csv_filename).import_users()
-
-```
-2. Create a configuration file called config.json (replace the values with your own) :
+1. Create a configuration file called config.json (replace the values with your own) :
 
 ```json
 {
@@ -59,17 +45,17 @@ if __name__ == "__main__":
 
 ```
 
-3. Create a csv called sample.csv
+2. Create a csv called sample.csv
 
 ```
 username,email,last_name,group,password,language
 tirion.lanister,tirion.lannister@westeros.com,Lannister,Casterly Rock,P@s$word,en
 ```
 
-4. Run add_user.py
+3. Run xmc-user-importer
 
 ```
-$> python add_user.py config.json sample.csv
+$> xmc-user-importer config.json sample.csv
 tirion.lannister@westeros.com... Success
 ```
 

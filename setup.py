@@ -12,5 +12,6 @@ setup(
         'Programming Language :: Python :: 2.7',
     ],
     packages=['xmcuserimporter', 'xmcuserimporter.portal'],
-    install_requires=['requests>=2']
+    install_requires=['requests>=2'],
+    scripts=['bin/xmc-user-importer']
 )
