@@ -13,5 +13,9 @@ setup(
     ],
     packages=['xmcuserimporter', 'xmcuserimporter.portal'],
     install_requires=['requests>=2'],
-    scripts=['bin/xmc-user-importer']
+    entry_points={
+        'console_scripts': [
+            'xmc-user-importer = xmcuserimporter.__main__:main'
+        ]
+    },
 )
