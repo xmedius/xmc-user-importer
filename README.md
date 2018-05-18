@@ -114,10 +114,20 @@ Column              | Required | Description
 ```language```      |        N | The 2-letter code of user's locale. Supported locales are `EN`, `FR` and `DE`. If unspecified, it will use the enterprise's default language.
 ```time_zone```     |        N | The name of the user's timezone, allowed values are listed [here](http://api.rubyonrails.org/classes/ActiveSupport/TimeZone.html). If unspecified, it will use the enterprise's default time zone.
 
+## Error example
+
+When a user fails to be imported, it will print an error message, with the reason for the failure:
+
+```
+$> xmc-user-importer config.json sample-with-invalid-data.csv
+email@invalid... Failed: {u'email': [u'does not appear to be valid']}
+```
+
 
 ## Note
 
 - It is recommended to test the import on one account first and verify that all flows, including email deliveries, are in line with the expected results
+- The script does not write any logs to a file, it only prints messages in the console. So when importing a lot of users, it is a good idea to save the output to a file to find user that failed to be imported
 - The password used to create the user will NEVER be sent to newly created user or returned to the
   enterprise administrator running the script. When using `"password_setup_mode": "manual"`, the
   enterprise administrator is responsible to communicate the password to the users.
