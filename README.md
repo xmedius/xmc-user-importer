@@ -18,7 +18,7 @@ This tool only adds new user account, it does not update existing ones.
 
 ## Prerequisites
 
-- Python version 2.7 (minimum) [download](https://www.python.org/downloads/)
+- Python version 3.7 (minimum) [download](https://www.python.org/downloads/)
 - Pip updated to its latest version:
   ```
   pip install --upgrade pip

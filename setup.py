@@ -9,7 +9,7 @@ setup(
     author='XMedius R&D',
     license='MIT',
     classifiers=[
-        'Programming Language :: Python :: 2.7',
+        'Programming Language :: Python :: 3.7',
     ],
     packages=['xmcuserimporter', 'xmcuserimporter.portal'],
     install_requires=['requests>=2'],

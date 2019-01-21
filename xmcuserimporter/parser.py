@@ -1,6 +1,6 @@
 import csv
 import json
-from portal import Client
+from .portal import Client
 
 
 class Parser:
@@ -16,15 +16,15 @@ class Parser:
         self.default_group_id = self.client.default_group()
 
     def import_users(self):
-        with open(self.csv_filename, 'rb') as csvfile:
+        with open(self.csv_filename) as csvfile:
             reader = csv.DictReader(csvfile)
             for row in reader:
                 user = self._build_user(row)
                 json = self.client.add_user(user)
                 if json['result'] == True:
-                    print "%s... Success" % row['email']
+                    print ("%s... Success" % row['email'])
                 else:
-                    print "%s... Failed: %s" % (row['email'], json['errors'] )
+                    print ("%s... Failed: %s" % (row['email'], json['errors'] ))
 
 
     def _build_user(self, row):
@@ -70,12 +70,12 @@ class Parser:
             return self.default_group_id
 
         try:
-            return self.groups.keys()[self.groups.values().index(group_name)]
+            return self.groups.keys()[list(self.groups.values()).index(group_name)]
         except ValueError:
             return self.default_group_id
 
     def _fax_number_id(self, fax_number):
-        for key, value in self.fax_numbers.iteritems():
+        for key, value in self.fax_numbers.items():
             if value['number'] == fax_number:
                 return key
 
