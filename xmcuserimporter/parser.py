@@ -69,10 +69,11 @@ class Parser:
         if group_name == '':
             return self.default_group_id
 
-        try:
-            return self.groups.keys()[list(self.groups.values()).index(group_name)]
-        except ValueError:
-            return self.default_group_id
+        for id, name in self.groups.items():
+            if name == group_name:
+                return id
+
+        return self.default_group_id
 
     def _fax_number_id(self, fax_number):
         for key, value in self.fax_numbers.items():
