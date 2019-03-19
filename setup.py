@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='xmcuserimporter',
-    version='1.0.3',
+    version='1.1.0',
     description='Pyhton module for importing user in XmediusCloud from a CSV file',
     long_description='See https://github.com/xmedius/xmc-user-importer for more information',
     url='https://github.com/xmedius/xmc-user-importer',

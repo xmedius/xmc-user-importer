@@ -29,7 +29,7 @@ This tool only adds new user account, it does not update existing ones.
 From a console, run the following command:
 
 ```
-$> pip install https://github.com/xmedius/xmc-user-importer/tarball/master
+$> pip install https://github.com/xmedius/xmc-user-importer/archive/1.1.0.tar.gz
 ```
 
 # Quick Start
